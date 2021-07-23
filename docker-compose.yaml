@@ -1,0 +1,36 @@
+version: "3.3"
+
+networks:
+  ster-net:
+    driver: bridge
+
+volumes:
+  ster-db:
+
+services:
+  ster-db:
+    image: postgres:12.2
+    container_name: ster-db
+    ports:
+      - 54320:5432
+    networks:
+      - ster-net
+    volumes:
+      - ster-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "docker"
+  ster-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ster-app
+    container_name: ster-app
+    networks:
+      - ster-net
+    ports:
+      - 7000:80
+    volumes:
+      - .:/app
+    depends_on:
+      - ster-db
+    working_dir: /app
