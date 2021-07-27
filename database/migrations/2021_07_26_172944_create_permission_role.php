@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWallet extends Migration
+class CreatePermissionRole extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateWallet extends Migration
      */
     public function up()
     {
-        Schema::create('wallet', function (Blueprint $table) {
-            $table->id();
-            $table->decimal('balance', $precision = 8, $scale = 2);
-            $table->foreignId('user_id')->constrained('users');
-            $table->timestamps();
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->foreignId('permission_id')->constrained('permissions');
+            $table->foreignId('role_id')->constrained('roles');
+            $table->unique('permission_id', 'role_id');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateWallet extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wallet');
+        Schema::dropIfExists('permission_role');
     }
 }

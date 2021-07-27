@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wallet extends Model
+class Permission extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function roles()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Role::class);
     }
 }
