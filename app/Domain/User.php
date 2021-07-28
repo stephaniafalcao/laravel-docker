@@ -10,21 +10,18 @@ class User
     private string $document;
     private string $password;
     private Role $role;
+    private Wallet $wallet;
 
-    public function __construct(int $id, string $name, string $email, string $document, string $password, Role $role)
+    public function __construct(int $id, string $name, string $email, string $document, string $password, Role $role, Wallet $wallet)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->document = $document;
         $this->password = $password;
+        $this->role = $role;
+        $this->wallet = $wallet;
     }
-
-    public function getRole()
-    {
-        return $this->role;
-    }
-
 
     /**
      * Get the value of id
@@ -56,6 +53,22 @@ class User
     public function getDocument()
     {
         return $this->document;
+    }
+
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function getWallet()
+    {
+        return $this->wallet;
+    }
+
+    public static function fromArray(array $user):self
+    {
+        return new self($user['id'], $user['name'], $user['email'], $user['document'], $user['password'], Role::fromArray($user['role']), Wallet::fromArray($user['wallet']) );
     }
 
 }

@@ -11,4 +11,24 @@ use Illuminate\Notifications\Notifiable;
 class User extends Model
 {
     use HasFactory, Notifiable;
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
+    public function transactions_sender()
+    {
+        return $this->hasMany(Transaction::class, 'sender_id');
+    }
+
+    public function transactions_receiver()
+    {
+        return $this->hasMany(Transaction::class, 'receiver_id');
+    }
 }

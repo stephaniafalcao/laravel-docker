@@ -22,7 +22,7 @@ class Role
 
     public function hasPermission(string $name)
     {
-        return array_reduce($this->permissions, fn($acumulator, $permission) => $acumulator || $name === $permission->name, false);
+        return array_reduce($this->permissions, fn($acumulator, $permission) => $acumulator || $name === $permission->getAction(), false);
     }
 
     /**
@@ -39,6 +39,11 @@ class Role
     public function getId()
     {
         return $this->id;
+    }
+
+    public static function fromArray(array $role):self
+    {
+        return new self($role['id'], $role['role'], array_map(fn($permission) => Permission::fromArray($permission), $role['permissions']));
     }
 
 

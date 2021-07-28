@@ -40,4 +40,9 @@ class Permission
     {
         return $this->action;
     }
+
+    public static function fromArray(array $permission):self
+    {
+        return new self($permission['id'], $permission['type'], $permission['action']);
+    }
 }
