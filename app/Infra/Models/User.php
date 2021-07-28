@@ -2,9 +2,6 @@
 
 namespace App\Infra\Models;
 
-use App\Domain\Role;
-use App\Models\Transaction;
-use App\Models\Wallet;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

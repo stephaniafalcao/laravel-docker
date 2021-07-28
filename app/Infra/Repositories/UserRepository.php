@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Infra;
+namespace App\Infra\Repositories;
 
 use App\Infra\Models\User;
 
 class UserRepository
 {
-    public function user($id):User
+    public function user($id):array
     {
-        return User::find($id);
+        return User::with('role.permissions', 'wallet')->find($id)->toArray();
     }
 }
