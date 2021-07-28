@@ -1,8 +1,5 @@
 <?php
 
-use App\Domain\Role;
-use App\Domain\Permission;
-use App\Domain\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,21 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/teste', function ()  {
-    $permission = new Permission();
-    $permission->name = "teste";
-
-    $role = new Role([$permission]);
-
-    $user = new User($role);
-
-    if ($user->getRole()->hasPermission("res")) {
-        echo "tem";
-    } else {
-        echo "não tem";
-    }
-
-    //return view('welcome');
 });
