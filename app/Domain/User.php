@@ -68,7 +68,7 @@ class User
 
     public static function fromArray(array $user):self
     {
-        return new self($user['id'], $user['name'], $user['email'], $user['document'], $user['password'], Role::fromArray($user['role']), Wallet::fromArray($user['wallet']) );
+        return new self($user['id'], $user['name'], $user['email'], $user['document'], $user['password'], Role::fromArray($user['role']), Wallet::fromArray($user['wallet']));
     }
 
 }
