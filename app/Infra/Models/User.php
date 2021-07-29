@@ -22,13 +22,4 @@ class User extends Model
         return $this->hasOne(Wallet::class);
     }
 
-    public function transactions_sender()
-    {
-        return $this->hasMany(Transaction::class, 'sender_id');
-    }
-
-    public function transactions_receiver()
-    {
-        return $this->hasMany(Transaction::class, 'receiver_id');
-    }
 }

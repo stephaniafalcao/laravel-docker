@@ -12,6 +12,11 @@ class NotAuthorizedException extends Exception
         parent::__construct($message, $code, $previous);
     }
 
+    /**
+     * Exceção criada para tratar serviços não autorizados
+     *
+     * @return self
+     */
     public static function create():self
     {
         return new static("Não Autorizado");

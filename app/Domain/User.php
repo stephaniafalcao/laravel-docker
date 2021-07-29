@@ -66,6 +66,12 @@ class User
         return $this->wallet;
     }
 
+    /**
+     * Transforma o array recebido em um objeto do domain
+     *
+     * @param array $user
+     * @return self
+     */
     public static function fromArray(array $user):self
     {
         return new self($user['id'], $user['name'], $user['email'], $user['document'], $user['password'], Role::fromArray($user['role']), Wallet::fromArray($user['wallet']));

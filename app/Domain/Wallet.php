@@ -32,11 +32,12 @@ class Wallet
         return $this->balance;
     }
 
-    public static function fromArray(array $wallet):self
-    {
-        return new self($wallet['id'], $wallet['balance']);
-    }
-
+    /**
+     * Retira valor da transação do saldo
+     *
+     * @param integer $subtract
+     * @return void
+     */
     public function subtractBalance(int $subtract)
     {
         if ($this->balance < $subtract) {
@@ -46,8 +47,25 @@ class Wallet
         $this->balance-= $subtract;
     }
 
+    /**
+     * Acrescenta valor da transação ao saldo
+     *
+     * @param integer $sum
+     * @return void
+     */
     public function sumBalance(int $sum)
     {
         $this->balance+= $sum;
+    }
+
+    /**
+     * Transforma o array recebido em um objeto do domain
+     *
+     * @param array $wallet
+     * @return self
+     */
+    public static function fromArray(array $wallet):self
+    {
+        return new self($wallet['id'], $wallet['balance']);
     }
 }

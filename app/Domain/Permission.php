@@ -41,6 +41,12 @@ class Permission
         return $this->action;
     }
 
+    /**
+     * Transforma o array recebido em um objeto do domain
+     *
+     * @param array $permission
+     * @return self
+     */
     public static function fromArray(array $permission):self
     {
         return new self($permission['id'], $permission['type'], $permission['action']);
