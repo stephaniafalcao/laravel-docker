@@ -31,7 +31,7 @@ class TransferService
      */
     public function makeTransfer(array $sender, array $receiver, int $amount)
     {
-        // cria uma instância de user do model a partir do array recebido
+        // cria uma instância de user do domain a partir do array recebido
         $userSender = User::fromArray($sender);
         $userReceiver = User::fromArray($receiver);
 
