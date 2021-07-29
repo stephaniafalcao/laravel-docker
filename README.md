@@ -1,4 +1,4 @@
-<h1 align="center">Carteira Simplificada</h1>
+<h1 align="center">Projeto Transações Carteira Simplificada</h1>
 
 <p
     align="center"
@@ -13,7 +13,7 @@
 ## Introdução
 
 O projeto é construído em cima do Framework PHP Laravel e visa implementar uma versão simplicada de 
-uma operação de transferência entre usuários.
+transações entre usuários.
 
 ## Documentação
 
