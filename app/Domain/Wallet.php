@@ -2,6 +2,8 @@
 
 namespace App\Domain;
 
+use DomainException;
+
 class Wallet
 {
     private int $id;
@@ -35,9 +37,12 @@ class Wallet
         return new self($wallet['id'], $wallet['balance']);
     }
 
-
     public function subtractBalance(int $subtract)
     {
+        if ($this->balance < $subtract) {
+            throw new DomainException("Saldo insuficiente");
+        }
+
         $this->balance-= $subtract;
     }
 

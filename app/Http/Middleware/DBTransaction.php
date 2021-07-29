@@ -18,6 +18,16 @@ class DBTransaction
      */
     public function handle(Request $request, Closure $next)
     {
-        return DB::transaction(fn () => $next($request));
+
+        //return DB::transaction(function () use ($next, $request) {
+            try{
+                echo "opa00000";
+                return $next($request);
+            } catch(\Throwable $e) {
+                echo "não foi";
+                throw $e;
+            }
+
+       // });
     }
 }
