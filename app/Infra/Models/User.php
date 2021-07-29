@@ -12,6 +12,13 @@ class User extends Model
 {
     use HasFactory, Notifiable;
 
+    protected $fillable = [
+        "name",
+        "email",
+        "document",
+        "password"
+    ];
+
     public function role()
     {
         return $this->belongsTo(Role::class);

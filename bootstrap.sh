@@ -2,7 +2,7 @@
 
 #composer create-project laravel/laravel ster
 
-composer install 
+composer install
 
 if [ ! -f ".env" ]
 then
@@ -10,4 +10,4 @@ then
   php artisan key:generate
 fi
 
-php artisan migrate
+php artisan migrate --seed
