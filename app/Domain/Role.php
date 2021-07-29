@@ -41,6 +41,12 @@ class Role
         return $this->id;
     }
 
+    /**
+     * Transforma o array recebido em um objeto do domain
+     *
+     * @param array $role
+     * @return self
+     */
     public static function fromArray(array $role):self
     {
         return new self($role['id'], $role['role'], array_map(fn($permission) => Permission::fromArray($permission), $role['permissions']));

@@ -8,7 +8,14 @@ use App\Infra\Models\Wallet as WalletEloquent;
 
 class TranslatorWalletEloquent
 {
-    public static function formatarParaEloquent(Wallet $wallet, User $user):WalletEloquent
+    /**
+     * Faz a conversão dos objetos do domain para o formato do banco - eloquent
+     *
+     * @param Wallet $wallet
+     * @param User $user
+     * @return WalletEloquent
+     */
+    public static function formatForEloquent(Wallet $wallet, User $user):WalletEloquent
     {
         $walletPrepare['id'] = $wallet->getId();
         $walletPrepare['balance'] = $wallet->getBalance();
