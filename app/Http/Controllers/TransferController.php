@@ -49,7 +49,7 @@ class TransferController extends Controller
             // invoca serviço responsável pela notificação do usuário
             $notificationService->notifyUser();
 
-            return response()->json(['sucesso' => "Transferencia realizada com sucesso"], 200);
+            return response()->json(['success' => "Transferência realizada com sucesso"], 200);
 
         } catch(DomainException $e) {
 
