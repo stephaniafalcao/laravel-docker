@@ -16,10 +16,10 @@ class TransactionAuthorizerService
     /**
      * Invoca método responsável por verificar se transação foi aprovada
      *
-     * @return void
+     * @return bool
      */
-    public function verifyTransaction()
+    public function verifyTransaction():bool
     {
-        $this->transactionAuthorizer->verifyTransaction();
+        return $this->transactionAuthorizer->verifyTransaction();
     }
 }
